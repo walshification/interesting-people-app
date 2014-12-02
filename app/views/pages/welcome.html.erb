@@ -1,0 +1,22 @@
+<h1>Interesting People</h1>
+
+<div ng-app="app">
+  <div ng-controller="interestingPeopleCtrl">
+
+    <div id="input_form">
+      <input ng-model="newPerson"><br>
+      <input ng-model="interestingInfo"><br>
+      <button ng-click="addPerson(newPerson, interestingInfo)">Add Person</button>
+    </div>
+
+    <div ng-repeat="person in people track by $index">
+      <button onclick="deletePerson(person)">Delete</button> <h2 ng-click="toggleInfo(person)">{{ person.name }}</h2>
+      <p ng-if="!person.hideInfo">{{ person.interestingInfo }}</p>
+    </div>
+
+    <div>
+      <p>Number of Interesting People: {{ numberOfInterestingPeople() }}</p>
+    </div>
+    
+  </div>
+</div>
